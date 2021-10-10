@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FluxMei.Models
 {
@@ -9,7 +10,8 @@ namespace FluxMei.Models
         {
             Movimento = new HashSet<Movimento>();
         }
-        public string IdMei { get; set; }
+        [Key]
+        public int IdMei { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
         public string NomeEmpresa { get; set; }
