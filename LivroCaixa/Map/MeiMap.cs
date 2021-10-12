@@ -1,4 +1,5 @@
 ﻿using FluxMei.Models;
+using LivroCaixa.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,10 +28,9 @@ namespace LivroCaixa.Map
             Property(x => x.NomeProprietario)
                 .HasColumnName("nomeproprietario")
                 .IsRequired();
-
-            
-
         }
 
         public static MeiMap Create() => new MeiMap();
+        
     }
+}

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -10,6 +11,10 @@ namespace LivroCaixa.Models
     public class ApplicationUser : IdentityUser
     {
         public int IdMei { get; set; }
+        [Required(ErrorMessage="O campo nome é obrigatório!!!")]
+        [MaxLength(100,ErrorMessage ="Tamanho máximo do campo é 100 caracteres!")]
+        public string Nome { get; set; }
+        
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -30,5 +35,11 @@ namespace LivroCaixa.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<LivroCaixa.Models.TipoMovimento> TipoMovimentoes { get; set; }
+
+        public System.Data.Entity.DbSet<LivroCaixa.Models.Mei> Meis { get; set; }
+
+        public System.Data.Entity.DbSet<LivroCaixa.Models.Movimento> Movimentoes { get; set; }
     }
 }

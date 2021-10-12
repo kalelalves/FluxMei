@@ -192,10 +192,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MeiController.cs" />
+    <Compile Include="Controllers\MovimentoController.cs" />
+    <Compile Include="Controllers\TipoMovimentoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Map\MeiMap.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ErrorViewModel.cs" />
     <Compile Include="Models\FluxBDContext.cs" />
@@ -264,6 +268,21 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\TipoMovimento\Create.cshtml" />
+    <Content Include="Views\TipoMovimento\Delete.cshtml" />
+    <Content Include="Views\TipoMovimento\Details.cshtml" />
+    <Content Include="Views\TipoMovimento\Edit.cshtml" />
+    <Content Include="Views\TipoMovimento\Index.cshtml" />
+    <Content Include="Views\Mei\Create.cshtml" />
+    <Content Include="Views\Mei\Delete.cshtml" />
+    <Content Include="Views\Mei\Details.cshtml" />
+    <Content Include="Views\Mei\Edit.cshtml" />
+    <Content Include="Views\Mei\Index.cshtml" />
+    <Content Include="Views\Movimento\Create.cshtml" />
+    <Content Include="Views\Movimento\Delete.cshtml" />
+    <Content Include="Views\Movimento\Details.cshtml" />
+    <Content Include="Views\Movimento\Edit.cshtml" />
+    <Content Include="Views\Movimento\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

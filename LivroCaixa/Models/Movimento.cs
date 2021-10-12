@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FluxMei.Models
+namespace LivroCaixa.Models
 {
+    [Table("Movimento")]
     public partial class Movimento
     {
         [Key]
@@ -14,11 +15,16 @@ namespace FluxMei.Models
         public decimal Total { get; set; }
         public DateTime Data { get; set; }
         public decimal Valor { get; set; }
-        [ForeignKey("fk_movimento_mei")]
-        public string IdMei { get; set; }
-        [ForeignKey("fk_movimento_tipomovimento")]
+        [ForeignKey("TipoMovimento")]
         public int TipoMovimentoId { get; set; }
-        public virtual TipoMovimento TipomoMovimento { get; set; }
+        
+        public virtual TipoMovimento TipoMovimento { get; set; }
+        [ForeignKey("Mei")]
+        public int IdMei { get; set; }
         public virtual Mei Mei { get; set; }
+        /// <summary>
+        /// usuário que fez o lançamento...
+        /// </summary>
+        public string userName { get; set; }
     }
 }
