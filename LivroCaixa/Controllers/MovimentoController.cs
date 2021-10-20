@@ -12,12 +12,12 @@ namespace LivroCaixa.Controllers
 {
     public class MovimentoController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private FluxBDContext db = new FluxBDContext();
 
         // GET: Movimento
         public ActionResult Index()
         {
-            var movimentoes = db.Movimentoes.Include(m => m.Mei).Include(m => m.TipoMovimento);
+            var movimentoes = db.Movimento.Include(m => m.Mei).Include(m => m.TipoMovimento);
             return View(movimentoes.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace LivroCaixa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movimento movimento = db.Movimentoes.Find(id);
+            Movimento movimento = db.Movimento.Find(id);
             if (movimento == null)
             {
                 return HttpNotFound();
@@ -39,8 +39,8 @@ namespace LivroCaixa.Controllers
         // GET: Movimento/Create
         public ActionResult Create()
         {
-            ViewBag.IdMei = new SelectList(db.Meis, "IdMei", "Login");
-            ViewBag.TipoMovimentoId = new SelectList(db.TipoMovimentoes, "tipoid", "descricao");
+            ViewBag.IdMei = new SelectList(db.Mei, "IdMei", "Login");
+            ViewBag.TipoMovimentoId = new SelectList(db.TipoMovimento, "tipoid", "descricao");
             return View();
         }
 
@@ -53,13 +53,13 @@ namespace LivroCaixa.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Movimentoes.Add(movimento);
+                db.Movimento.Add(movimento);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdMei = new SelectList(db.Meis, "IdMei", "Login", movimento.IdMei);
-            ViewBag.TipoMovimentoId = new SelectList(db.TipoMovimentoes, "tipoid", "descricao", movimento.TipoMovimentoId);
+            ViewBag.IdMei = new SelectList(db.Mei, "IdMei", "Login", movimento.IdMei);
+            ViewBag.TipoMovimentoId = new SelectList(db.TipoMovimento, "tipoid", "descricao", movimento.TipoMovimentoId);
             return View(movimento);
         }
 
@@ -70,13 +70,13 @@ namespace LivroCaixa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movimento movimento = db.Movimentoes.Find(id);
+            Movimento movimento = db.Movimento.Find(id);
             if (movimento == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdMei = new SelectList(db.Meis, "IdMei", "Login", movimento.IdMei);
-            ViewBag.TipoMovimentoId = new SelectList(db.TipoMovimentoes, "tipoid", "descricao", movimento.TipoMovimentoId);
+            ViewBag.IdMei = new SelectList(db.Mei, "IdMei", "Login", movimento.IdMei);
+            ViewBag.TipoMovimentoId = new SelectList(db.TipoMovimento, "tipoid", "descricao", movimento.TipoMovimentoId);
             return View(movimento);
         }
 
@@ -93,8 +93,8 @@ namespace LivroCaixa.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdMei = new SelectList(db.Meis, "IdMei", "Login", movimento.IdMei);
-            ViewBag.TipoMovimentoId = new SelectList(db.TipoMovimentoes, "tipoid", "descricao", movimento.TipoMovimentoId);
+            ViewBag.IdMei = new SelectList(db.Mei, "IdMei", "Login", movimento.IdMei);
+            ViewBag.TipoMovimentoId = new SelectList(db.TipoMovimento, "tipoid", "descricao", movimento.TipoMovimentoId);
             return View(movimento);
         }
 
@@ -105,7 +105,7 @@ namespace LivroCaixa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movimento movimento = db.Movimentoes.Find(id);
+            Movimento movimento = db.Movimento.Find(id);
             if (movimento == null)
             {
                 return HttpNotFound();
@@ -118,8 +118,8 @@ namespace LivroCaixa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(decimal id)
         {
-            Movimento movimento = db.Movimentoes.Find(id);
-            db.Movimentoes.Remove(movimento);
+            Movimento movimento = db.Movimento.Find(id);
+            db.Movimento.Remove(movimento);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

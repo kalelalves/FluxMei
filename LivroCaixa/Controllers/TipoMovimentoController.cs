@@ -12,12 +12,12 @@ namespace LivroCaixa.Controllers
 {
     public class TipoMovimentoController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private FluxBDContext db = new FluxBDContext();
 
         // GET: TipoMovimento
         public ActionResult Index()
         {
-            return View(db.TipoMovimentoes.ToList());
+            return View(db.TipoMovimento.ToList());
         }
 
         // GET: TipoMovimento/Details/5
@@ -27,7 +27,7 @@ namespace LivroCaixa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TipoMovimento tipoMovimento = db.TipoMovimentoes.Find(id);
+            TipoMovimento tipoMovimento = db.TipoMovimento.Find(id);
             if (tipoMovimento == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace LivroCaixa.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.TipoMovimentoes.Add(tipoMovimento);
+                db.TipoMovimento.Add(tipoMovimento);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace LivroCaixa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TipoMovimento tipoMovimento = db.TipoMovimentoes.Find(id);
+            TipoMovimento tipoMovimento = db.TipoMovimento.Find(id);
             if (tipoMovimento == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace LivroCaixa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TipoMovimento tipoMovimento = db.TipoMovimentoes.Find(id);
+            TipoMovimento tipoMovimento = db.TipoMovimento.Find(id);
             if (tipoMovimento == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace LivroCaixa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TipoMovimento tipoMovimento = db.TipoMovimentoes.Find(id);
-            db.TipoMovimentoes.Remove(tipoMovimento);
+            TipoMovimento tipoMovimento = db.TipoMovimento.Find(id);
+            db.TipoMovimento.Remove(tipoMovimento);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

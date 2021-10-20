@@ -12,12 +12,12 @@ namespace LivroCaixa.Controllers
 {
     public class MeiController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private FluxBDContext db = new FluxBDContext();
 
         // GET: Mei
         public ActionResult Index()
         {
-            return View(db.Meis.ToList());
+            return View(db.Mei.ToList());
         }
 
         // GET: Mei/Details/5
@@ -27,7 +27,7 @@ namespace LivroCaixa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mei mei = db.Meis.Find(id);
+            Mei mei = db.Mei.Find(id);
             if (mei == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace LivroCaixa.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Meis.Add(mei);
+                db.Mei.Add(mei);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace LivroCaixa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mei mei = db.Meis.Find(id);
+            Mei mei = db.Mei.Find(id);
             if (mei == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace LivroCaixa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mei mei = db.Meis.Find(id);
+            Mei mei = db.Mei.Find(id);
             if (mei == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace LivroCaixa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Mei mei = db.Meis.Find(id);
-            db.Meis.Remove(mei);
+            Mei mei = db.Mei.Find(id);
+            db.Mei.Remove(mei);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -20,14 +20,13 @@ namespace LivroCaixa.Models
         public virtual DbSet<Mei> Mei { get; set; }
         public virtual DbSet<Movimento> Movimento { get; set; }
         public virtual DbSet<TipoMovimento> TipoMovimento { get; set; }
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
-//            if (!optionsBuilder.IsConfigured)
-//            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-//                optionsBuilder.UseSqlServer("Data Source=DESKTOP-P1M7U70\\SQLEXPRESS;Initial Catalog=FluxBD;Integrated Security=True;");
-//            }
-//        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlServer("Data Source=DESKTOP-P1M7U70\\SQLEXPRESS;Initial Catalog=FluxBD;Integrated Security=True;");
+        //    }
+        //}
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
