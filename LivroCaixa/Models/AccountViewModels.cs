@@ -65,7 +65,7 @@ namespace LivroCaixa.Models
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
+        
         [Display(Name = "Nome do Responsável pelo MEI")]
         public string Nome { get; set; }
         [Required]

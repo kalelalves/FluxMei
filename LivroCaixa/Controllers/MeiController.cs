@@ -48,8 +48,10 @@ namespace LivroCaixa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdMei,Login,Senha,NomeEmpresa,Logradouto,Cnpj,NomeProprietario,Telefone")] Mei mei)
         {
+            Aes256 crip = new Aes256(mei.Senha);
             if (ModelState.IsValid)
             {
+                mei.Senha = crip.Encrypt(crip.Password);
                 db.Mei.Add(mei);
                 db.SaveChanges();
                 return RedirectToAction("Index");

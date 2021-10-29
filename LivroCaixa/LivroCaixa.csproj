@@ -545,6 +545,7 @@
     <Compile Include="Map\MeiMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Aes.256.cs" />
     <Compile Include="Models\AspNet.Identity.EntityFramework.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
